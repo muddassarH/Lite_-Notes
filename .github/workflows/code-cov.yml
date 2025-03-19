@@ -20,9 +20,9 @@ jobs:
           run: sudo apt-get install lcov
         - name: Copy coverage report from container
           run: |
-            docker create --name ai-chat-bot-container ai_chatBot:latest
-            docker cp ai-chat-bot-container:/app/jacoco.xml ./coverage/
-            docker rm ai-chat-bot-container
+            docker create --name notes-container Lite_-Notes:latest
+            docker cp notes-container:/app/jacoco.xml ./coverage/
+            docker rm notes-container
         - name: Convert JaCoco to LCOV
           run: |
             bash <curl -s https://codecov.io/bash) -f ./coverage/jacoco.xml -o ./coverage/lcov.info
