@@ -20,7 +20,7 @@ jobs:
           run: sudo apt-get install lcov
         - name: Copy coverage report from container
           run: |
-            docker create --name notes-container Lite_-Notes:latest
+            docker create --name notes-container lite_-notes:latest
             docker cp notes-container:/app/jacoco.xml ./coverage/
             docker rm notes-container
         - name: Convert JaCoco to LCOV
